@@ -3,8 +3,8 @@
     class="flex justify-center space-x-3 text-sm font-light"
     v-if="nbPages > 1"
   >
-    <li class="prev-next" :class="{ disabled: isFirstPage }">
-      <a href="#" @click.prevent="prevPage">
+    <li class="prev-next">
+      <a href="#" @click.prevent="prevPage" :class="{ disabled: isFirstPage }">
         <ArrowIcon />
       </a>
     </li>
@@ -18,8 +18,8 @@
         {{ i + 1 }}
       </a>
     </li>
-    <li class="prev-next" :class="{ disabled: isLastPage }">
-      <a href="#" @click.prevent="nextPage">
+    <li class="prev-next">
+      <a href="#" @click.prevent="nextPage" :class="{ disabled: isLastPage }">
         <ArrowIcon direction="right" />
       </a>
     </li>
@@ -125,7 +125,7 @@ export default defineComponent({
 }
 
 .disabled {
-  @apply pointer-events-none text-gray-400;
+  @apply text-gray-400 cursor-not-allowed;
 }
 
 .page {
