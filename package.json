@@ -1,0 +1,33 @@
+{
+  "name": "algolia-mapbox",
+  "version": "0.0.0",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "vite --port 3000",
+    "build": "vite build",
+    "serve": "vite preview",
+    "dataset:process": "ts-node -r dotenv-flow/config -T -P ./build/tsconfig.json ./build/dataset/process.ts"
+  },
+  "dependencies": {
+    "mapbox-gl": "^2.1.0",
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@types/mapbox-gl": "^2.0.4",
+    "@types/node": "^14.14.22",
+    "@vitejs/plugin-vue": "^1.1.2",
+    "@vue/compiler-sfc": "^3.0.5",
+    "@vuedx/typescript-plugin-vue": "^0.6.0",
+    "algoliasearch": "^4.8.4",
+    "algoliasearch-helper": "^3.3.4",
+    "autoprefixer": "^10.2.3",
+    "csvtojson": "^2.0.10",
+    "dotenv-flow": "^3.2.0",
+    "postcss": "^8.2.4",
+    "tailwindcss": "^2.0.2",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3",
+    "vite": "^2.0.0-beta.61"
+  }
+}

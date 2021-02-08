@@ -1,0 +1,95 @@
+@layer base {
+  input[type='search']::-webkit-search-decoration,
+  input[type='search']::-webkit-search-cancel-button,
+  input[type='search']::-webkit-search-results-button,
+  input[type='search']::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  @font-face {
+    font-family: 'TTFirsNeue';
+    src: url('../assets/fonts/ttfirsneue-light.woff2') format('woff2'),
+      url('../assets/fonts/ttfirsneue-light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'TTFirsNeue';
+    src: url('../assets/fonts/ttfirsneue-regular.woff2') format('woff2'),
+      url('../assets/fonts/ttfirsneue-regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  @font-face {
+    font-family: 'TTFirsNeue';
+    src: url('../assets/fonts/ttfirsneue-medium.woff2') format('woff2'),
+      url('../assets/fonts/ttfirsneue-medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+  }
+
+  *::placeholder {
+    @apply font-light;
+  }
+
+  *::-webkit-scrollbar {
+    @apply w-1;
+  }
+
+  *::-webkit-scrollbar-track {
+    @apply bg-gray-100;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    @apply bg-gray-300 rounded-xl;
+  }
+}
+
+@layer utilities {
+  .form-checked:checked {
+    @apply border-transparent bg-gray-800 bg-no-repeat bg-center bg-50%;
+    background-image: url('../assets/images/checked.svg');
+  }
+
+  .highlight em {
+    @apply bg-yellow-200 p-0.5;
+  }
+
+  .gradient-overflow:before,
+  .gradient-overflow:after {
+    content: '';
+    @apply absolute left-0 w-full h-8 from-white to-transparent pointer-events-none z-10;
+  }
+
+  .gradient-overflow:before {
+    @apply top-0 bg-gradient-to-b;
+  }
+
+  .gradient-overflow:after {
+    @apply bottom-0 bg-gradient-to-t;
+  }
+
+  .list-enter-from,
+  .list-leave-to {
+    @apply opacity-0;
+  }
+
+  .list-leave-active {
+    @apply w-full m-0 absolute;
+  }
+
+  .fade-enter-active,
+  .fade-leave-active {
+    @apply transition-opacity;
+  }
+
+  .fade-enter-from,
+  .fade-leave-to {
+    @apply opacity-0;
+  }
+}
