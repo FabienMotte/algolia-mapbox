@@ -169,6 +169,11 @@ export default defineComponent({
 .mapboxgl-ctrl-group button {
   @apply w-8 h-8 focus:outline-none transition-colors rounded-md;
 }
+.mapboxgl-ctrl-group button:focus:first-child,
+.mapboxgl-ctrl-group button:focus:last-child,
+.mapboxgl-ctrl-group button:focus:only-child {
+  @apply rounded-md;
+}
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
   background-image: url('../assets/images/minus.svg');
