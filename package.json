@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "mapbox-gl": "^2.1.0",
+    "vite": "^2.0.0-beta.65",
     "vue": "^3.0.5"
   },
   "devDependencies": {
@@ -27,7 +28,10 @@
     "postcss": "^8.2.4",
     "tailwindcss": "^2.0.2",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.3",
-    "vite": "^2.0.0-beta.61"
+    "typescript": "^4.1.3"
+  },
+  "engines": {
+    "node": "14.15.4",
+    "npm": "6.14.10"
   }
 }
