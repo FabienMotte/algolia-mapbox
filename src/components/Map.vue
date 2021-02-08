@@ -101,7 +101,7 @@ export default defineComponent({
         markersBounds.extend(hitCoords)
       })
 
-      map.fitBounds(markersBounds, { padding: 50, maxZoom: 15, linear: true })
+      map.fitBounds(markersBounds, { padding: 80, maxZoom: 15, linear: true })
     }
 
     const updateMarkerState = (marker: Marker) => {
