@@ -18,6 +18,10 @@ module.exports = {
     animation: {
       pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
     },
+    gradientColorStops: (theme) => ({
+      ...theme('colors'),
+      transparent: 'rgba(255, 255, 255, 0)',
+    }),
     extend: {
       fontFamily: {
         sans: ['TTFirsNeue', defaultTheme.fontFamily.sans],

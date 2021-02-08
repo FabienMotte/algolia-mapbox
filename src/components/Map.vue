@@ -1,6 +1,9 @@
 <template>
   <div class="py-8 pl-8">
-    <div id="map" class="w-full h-full rounded-xl overflow-hidden"></div>
+    <div
+      id="map"
+      class="w-full h-full rounded-xl overflow-hidden transform"
+    ></div>
 
     <template v-show="false">
       <MapPopup :item="currentPopupItem" ref="popupEl" />

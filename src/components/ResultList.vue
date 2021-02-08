@@ -1,6 +1,6 @@
 <template>
   <section class="relative gradient-overflow">
-    <div class="h-full p-8 overflow-auto flex flex-col" ref="scrollEl">
+    <div class="h-full pl-8 pr-8 pt-8 overflow-auto" ref="scrollEl">
       <ResultStats class="ml-4 mb-2" />
 
       <transition-group
@@ -19,7 +19,7 @@
         </li>
       </transition-group>
 
-      <Pagination class="mt-5" />
+      <Pagination class="mt-5 pb-8" />
     </div>
   </section>
 </template>
@@ -59,8 +59,9 @@ export default defineComponent({
     }
 
     const getItemPosition = (index: number) => {
-      const row = Math.floor(index / 3) + 1
-      const column = (index % 3) + 1
+      const nbColumns = 1
+      const row = Math.floor(index / nbColumns) + 1
+      const column = (index % nbColumns) + 1
       return `${row} / ${column} / ${row} / ${column}`
     }
 

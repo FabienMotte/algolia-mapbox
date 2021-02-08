@@ -1,11 +1,12 @@
 <template>
   <aside class="relative gradient-overflow border-r border-gray-100">
-    <div class="h-full overflow-auto p-8 pr-5 space-y-10">
+    <div class="h-full overflow-auto pl-8 pt-8 pr-5 space-y-10">
       <RefinementList
         v-for="(facet, i) in facets"
         :key="facet.name"
         :facet="facet"
         :facet-values="facetsValues[i]"
+        :class="{ 'pb-8': i === facets.length - 1 }"
       />
     </div>
   </aside>
