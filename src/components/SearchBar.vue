@@ -11,7 +11,7 @@
       <input
         class="w-full h-full pl-32 bg-transparent outline-none text-3xl placeholder-gray-300"
         type="search"
-        placeholder="Search for restaurants"
+        :placeholder="placeholder"
         autocomplete="off"
         autocorrect="off"
         autocapitalize="off"
@@ -41,11 +41,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, onMounted, ref, watch } from 'vue'
-
+import { computed, defineComponent, onMounted, ref, watch } from 'vue'
+import { getAlgoliaHelper } from '@/services/algolia'
 import SearchIcon from '@/components/icons/SearchIcon.vue'
 import CloseIcon from '@/components/icons/CloseIcon.vue'
-import { getAlgoliaHelper } from '@/services/algolia'
 
 export default defineComponent({
   name: 'SearchBar',
@@ -59,6 +58,46 @@ export default defineComponent({
     const algoliaHelper = getAlgoliaHelper()
     const query = ref('')
 
+    const placeholderLetterDelay = 100
+    const placeholderWordDelay = 500
+    const placeholderWords = ['name', 'cuisine type', 'city', 'area', 'address']
+
+    const placeholderWord = ref('')
+    const placeholder = computed(
+      () => `Search for restaurants by ${placeholderWord.value}`,
+    )
+
+    let currentPlaceholderWordIdx = 0
+
+    const updatePlaceholder = () => {
+      placeholderWord.value = ''
+
+      let currentPlaceholderLetterIdx = 1
+      const currentPlaceholderWord = placeholderWords[currentPlaceholderWordIdx]
+      const currentPlaceholderWordLength = currentPlaceholderWord.length
+
+      const placeholderInterval = setInterval(() => {
+        if (currentPlaceholderLetterIdx > currentPlaceholderWordLength) {
+          clearInterval(placeholderInterval)
+          currentPlaceholderWordIdx =
+            (currentPlaceholderWordIdx + 1) % placeholderWords.length
+
+          setTimeout(() => {
+            updatePlaceholder()
+          }, placeholderWordDelay)
+
+          return
+        }
+
+        const currentPlaceholderLetters = currentPlaceholderWord.slice(
+          0,
+          currentPlaceholderLetterIdx,
+        )
+        currentPlaceholderLetterIdx++
+        placeholderWord.value = currentPlaceholderLetters
+      }, placeholderLetterDelay)
+    }
+
     onMounted(() => {
       watch(
         query,
@@ -67,10 +106,13 @@ export default defineComponent({
         },
         { immediate: true },
       )
+
+      updatePlaceholder()
     })
 
     return {
       query,
+      placeholder,
     }
   },
 })
