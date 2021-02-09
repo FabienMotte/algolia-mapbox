@@ -52,8 +52,7 @@
 
 @layer utilities {
   .form-checked:checked {
-    @apply border-transparent bg-gray-800 bg-no-repeat bg-center bg-50%;
-    background-image: url('../assets/images/checked.svg');
+    @apply border-transparent bg-gray-800 bg-no-repeat bg-center bg-50% bg-checked-icon;
   }
 
   .highlight em {

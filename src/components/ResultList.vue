@@ -6,7 +6,7 @@
       <transition-group
         name="result-list"
         tag="ol"
-        class="grid grid-cols-1 gap-6 relative"
+        class="grid grid-cols-1 gap-2 relative"
       >
         <li
           v-for="(item, i) in items"

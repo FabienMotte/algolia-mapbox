@@ -138,7 +138,14 @@ export default defineComponent({
         scrollZoom: true,
       })
 
-      map.addControl(new mapboxgl.GeolocateControl(), 'bottom-left')
+      map.addControl(
+        new mapboxgl.GeolocateControl({
+          positionOptions: {
+            enableHighAccuracy: true,
+          },
+        }),
+        'bottom-left',
+      )
       map.addControl(
         new mapboxgl.NavigationControl({ showCompass: false }),
         'bottom-left',
@@ -176,27 +183,39 @@ export default defineComponent({
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-out .mapboxgl-ctrl-icon {
-  background-image: url('../assets/images/minus.svg');
+  @apply bg-minus-icon;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-zoom-in .mapboxgl-ctrl-icon {
-  background-image: url('../assets/images/plus.svg');
+  @apply bg-plus-icon;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-geolocate .mapboxgl-ctrl-icon {
-  background-image: url('../assets/images/location.svg');
+  @apply bg-location-icon;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-fullscreen .mapboxgl-ctrl-icon {
-  background-image: url('../assets/images/arrows-expand.svg');
+  @apply bg-arrows-expand-icon;
 }
 
 .mapboxgl-ctrl button.mapboxgl-ctrl-shrink .mapboxgl-ctrl-icon {
-  background-image: url('../assets/images/arrows-shrink.svg');
+  @apply bg-arrows-shrink-icon;
 }
 
 .mapboxgl-ctrl-group button + button {
   @apply border-none;
+}
+
+.mapboxgl-ctrl-bottom-left .mapboxgl-ctrl {
+  @apply ml-6 mb-3;
+}
+
+.mapboxgl-ctrl-top-right .mapboxgl-ctrl {
+  @apply mt-6 mr-6;
+}
+
+.mapboxgl-ctrl-attrib {
+  @apply hidden;
 }
 
 .marker {
@@ -204,7 +223,7 @@ export default defineComponent({
 }
 
 .marker.marker-active:after {
-  @apply bg-green-400;
+  @apply bg-cyan-dark;
 }
 
 .marker:hover:before {
@@ -218,10 +237,10 @@ export default defineComponent({
 }
 
 .marker:before {
-  @apply w-10 h-10 bg-gray-500 bg-opacity-10;
+  @apply w-12 h-12 bg-gray-500 bg-opacity-10;
 }
 
 .marker:after {
-  @apply w-4 h-4 bg-gray-900 border-2 border-white transition-colors;
+  @apply w-5 h-5 bg-gray-900 border-3 border-white transition-colors;
 }
 </style>

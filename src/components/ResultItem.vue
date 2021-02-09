@@ -29,19 +29,19 @@
           ></div>
         </div>
 
-        <div class="flex items-center text-yellow-500 space-x-2 text-sm">
+        <div class="flex items-center space-x-2 text-sm">
           <span
-            class="w-6 h-6 flex items-center justify-center bg-yellow-50 rounded-lg"
+            class="w-6 h-6 flex items-center justify-center text-cyan-dark bg-cyan-light rounded-lg"
           >
             <StarIcon class="w-3 h-3" />
           </span>
           <span
             class="font-medium"
-            :class="{ 'text-yellow-500': item.stars_count >= 4 }"
-            >{{ item.stars_count }}</span
+            :class="{ 'text-cyan-dark': item.stars_count >= 4 }"
+            >{{ item.stars_count.toFixed(1) }}</span
           >
 
-          <div class="w-0.5 h-0.5 bg-yellow-500 rounded-full"></div>
+          <div class="w-0.5 h-0.5 bg-black rounded-full"></div>
 
           <div>
             {{ item.reviews_count }} review{{
