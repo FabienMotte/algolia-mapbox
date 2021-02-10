@@ -56,7 +56,7 @@
   }
 
   .highlight em {
-    @apply bg-yellow-200 p-0.5;
+    @apply bg-cyan-dark p-0.5;
   }
 
   .gradient-overflow:before,
