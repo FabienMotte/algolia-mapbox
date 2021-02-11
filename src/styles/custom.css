@@ -73,15 +73,6 @@
     @apply bottom-0 bg-gradient-to-t;
   }
 
-  .list-enter-from,
-  .list-leave-to {
-    @apply opacity-0;
-  }
-
-  .list-leave-active {
-    @apply w-full m-0 absolute;
-  }
-
   .fade-enter-active,
   .fade-leave-active {
     @apply transition-opacity;

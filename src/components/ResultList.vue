@@ -11,7 +11,7 @@
         <li
           v-for="(item, i) in items"
           :key="item.objectID"
-          class="inline-block transition-all ease-in-out"
+          class="inline-block"
           :style="`--item-position: ${getItemPosition(i)}`"
           :ref="(el) => setItemRef(el, item)"
         >
@@ -93,12 +93,20 @@ export default defineComponent({
 <style lang="postcss">
 .result-list-enter-from,
 .result-list-leave-to {
-  opacity: 0;
+  @apply opacity-0;
+}
+
+.result-list-enter-active,
+.result-list-leave-active {
+  @apply transition-opacity;
 }
 
 .result-list-leave-active {
-  position: absolute;
+  @apply absolute w-full;
   grid-area: var(--item-position);
-  width: 100%;
+}
+
+.result-list-move {
+  @apply transition-transform ease-in-out;
 }
 </style>

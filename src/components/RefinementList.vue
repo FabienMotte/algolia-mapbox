@@ -16,11 +16,16 @@
       </transition>
     </div>
 
-    <transition-group name="list" tag="ul" class="ml-1.5 flex flex-col">
+    <transition-group
+      name="refinement-list"
+      tag="ul"
+      class="ml-1.5 grid grid-cols-1 relative"
+    >
       <li
-        v-for="facetValue in facetValues.slice(0, maxFacetValues)"
+        v-for="(facetValue, i) in facetValues.slice(0, maxFacetValues)"
         :key="facetValue.name"
-        class="transition-all inline-block"
+        :style="`--item-position: ${getItemPosition(i)}`"
+        class="inline-block"
       >
         <label
           class="cursor-pointer flex items-center justify-between space-x-4 px-3 py-2 rounded-xl transition-colors group hover:bg-gray-100"
@@ -127,6 +132,13 @@ export default defineComponent({
       showMore.value = maxFacetValues.value === DEFAULT_MAX_FACET_VALUES
     }
 
+    const getItemPosition = (index: number) => {
+      const nbColumns = 1
+      const row = Math.floor(index / nbColumns) + 1
+      const column = (index % nbColumns) + 1
+      return `${row} / ${column} / ${row} / ${column}`
+    }
+
     return {
       refinementsCount,
       facetNameMap,
@@ -136,7 +148,29 @@ export default defineComponent({
       showMoreLessVisible,
       showMoreLessText,
       maxFacetValues,
+      getItemPosition,
     }
   },
 })
 </script>
+
+<style lang="postcss">
+.refinement-list-enter-from,
+.refinement-list-leave-to {
+  @apply opacity-0;
+}
+
+.refinement-list-enter-active,
+.refinement-list-leave-active {
+  @apply transition-opacity;
+}
+
+.refinement-list-leave-active {
+  @apply absolute w-full;
+  grid-area: var(--item-position);
+}
+
+.refinement-list-move {
+  @apply transition-transform ease-in-out;
+}
+</style>
