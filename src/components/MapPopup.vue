@@ -21,6 +21,7 @@
     <a
       :href="item.reserve_url"
       target="_blank"
+      rel="noopener"
       class="border border-gray-300 rounded-lg w-full block py-3 text-center text-xs mt-4 font-medium transition-colors hover:bg-gray-100 focus:outline-none"
       >See details</a
     >

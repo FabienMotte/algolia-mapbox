@@ -4,6 +4,8 @@
       src="../assets/images/algolia-logo.svg"
       alt="Algolia"
       class="w-5 h-5 mr-2"
+      width="20"
+      height="20"
     />
     <span>
       <template v-if="stats.nbHits !== 0">
