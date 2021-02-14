@@ -15,12 +15,13 @@ app.use(
       directives: {
         ...helmet.contentSecurityPolicy.getDefaultDirectives(),
         'default-src': [
-          'self',
+          "'self'",
           'https://*.algolia.net',
           'https://*.mapbox.com',
         ],
-        'img-src': ['self', 'data:', 'localhost:*', '*.unsplash.com'],
+        'img-src': ["'self'", 'data:', 'https://*.unsplash.com'],
         'worker-src': ['blob:'],
+        'require-trusted-types-for': ['script'],
       },
     },
   }),
