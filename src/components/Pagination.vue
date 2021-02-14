@@ -4,7 +4,12 @@
     v-if="nbPages > 1"
   >
     <li class="prev-next">
-      <a href="#" @click.prevent="prevPage" :class="{ disabled: isFirstPage }">
+      <a
+        href="#"
+        @click.prevent="prevPage"
+        :class="{ disabled: isFirstPage }"
+        aria-label="Previous"
+      >
         <ArrowIcon />
       </a>
     </li>
@@ -19,7 +24,12 @@
       </a>
     </li>
     <li class="prev-next">
-      <a href="#" @click.prevent="nextPage" :class="{ disabled: isLastPage }">
+      <a
+        href="#"
+        @click.prevent="nextPage"
+        :class="{ disabled: isLastPage }"
+        aria-label="Next"
+      >
         <ArrowIcon direction="right" />
       </a>
     </li>
