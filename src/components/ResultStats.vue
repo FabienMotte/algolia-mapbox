@@ -1,12 +1,20 @@
 <template>
-  <div class="text-sm inline-block font-light">
-    <template v-if="stats.nbHits !== 0">
-      <span class="font-normal">{{ nbHitsFormatted }}</span>
-      result{{ stats.nbHits > 1 ? 's' : '' }} found in
-      {{ stats.processingTime }} ms
-    </template>
+  <div class="text-sm flex font-light">
+    <img
+      src="../assets/images/algolia-logo.svg"
+      alt="Algolia"
+      class="w-5 h-5 mr-2"
+    />
+    <span>
+      <template v-if="stats.nbHits !== 0">
+        <b>{{ nbHitsFormatted }}</b> result{{
+          stats.nbHits > 1 ? 's' : ''
+        }}
+        found in {{ stats.processingTime }} ms
+      </template>
 
-    <template v-else>No results</template>
+      <template v-else>No results</template>
+    </span>
   </div>
 </template>
 
@@ -14,13 +22,7 @@
 import { SearchResults } from 'algoliasearch-helper'
 import ResultItem from '@/components/ResultItem.vue'
 import { getAlgoliaHelper } from '@/services/algolia'
-import {
-  computed,
-  defineComponent,
-  onMounted,
-  reactive,
-} from 'vue'
-
+import { computed, defineComponent, onMounted, reactive } from 'vue'
 
 export default defineComponent({
   name: 'ResultStats',
@@ -34,7 +36,7 @@ export default defineComponent({
 
     const stats = reactive({
       processingTime: 0,
-      nbHits: 0
+      nbHits: 0,
     })
 
     const nbHitsFormatted = computed(() => stats.nbHits.toLocaleString())
