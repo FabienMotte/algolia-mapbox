@@ -21,6 +21,7 @@ app.use(
         ],
         'img-src': ["'self'", 'data:', 'https://*.unsplash.com'],
         'worker-src': ['blob:'],
+        'script-src': ["'self'", 'blob:', "'unsafe-eval'"],
       },
     },
   }),
