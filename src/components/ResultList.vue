@@ -3,21 +3,20 @@
     <div class="h-full pl-8 pr-8 pt-8 overflow-auto" ref="scrollEl">
       <ResultStats class="ml-4 mb-2" />
 
-      <transition-group
+      <!-- <transition-group
         name="result-list"
         tag="ol"
         class="grid grid-cols-1 gap-2 relative"
+      > -->
+      <li
+        v-for="(item, i) in items"
+        :key="item.objectID"
+        class="inline-block"
+        :style="`--item-position: ${getItemPosition(i)}`"
       >
-        <li
-          v-for="(item, i) in items"
-          :key="item.objectID"
-          class="inline-block"
-          :style="`--item-position: ${getItemPosition(i)}`"
-          :ref="(el) => setItemRef(el, item)"
-        >
-          <ResultItem :item="item" />
-        </li>
-      </transition-group>
+        <ResultItem :item="item" />
+      </li>
+      <!-- </transition-group> -->
 
       <Pagination class="mt-5 pb-8" />
     </div>
@@ -73,7 +72,7 @@ export default defineComponent({
       () => MapStore.getState().currentObjectID,
       (currentObjectID) => {
         if (currentObjectID) {
-          itemRefs[currentObjectID].scrollIntoView({
+          itemRefs[currentObjectID]?.scrollIntoView({
             block: 'start',
             behavior: 'smooth',
           })

@@ -1,6 +1,10 @@
 {
   "name": "algolia-mapbox",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "contributors": [
+    "https://github.com/FabienMotte",
+    "https://github.com/devzom"
+  ],
   "scripts": {
     "start": "npm run dev",
     "dev": "vite --port 3000",
@@ -11,29 +15,29 @@
     "task:server": "ts-node -r dotenv-flow/config -T -P ./tasks/tsconfig.json ./tasks/server/server.ts"
   },
   "dependencies": {
-    "mapbox-gl": "^2.1.0",
-    "vue": "^3.0.5"
+    "mapbox-gl": "^2.8.2",
+    "vue": "^3.2.33"
   },
   "devDependencies": {
-    "@tailwindcss/aspect-ratio": "^0.2.0",
-    "@types/mapbox-gl": "^2.0.4",
-    "@types/node": "^14.14.22",
-    "@vitejs/plugin-vue": "^1.1.2",
-    "@vue/compiler-sfc": "^3.0.5",
+    "@tailwindcss/aspect-ratio": "^0.2.2",
+    "@types/mapbox-gl": "^2.7.1",
+    "@types/node": "^14.18.18",
+    "@vitejs/plugin-vue": "^1.10.2",
+    "@vue/compiler-sfc": "^3.2.33",
     "@vuedx/typescript-plugin-vue": "^0.6.0",
-    "algoliasearch": "^4.8.4",
-    "algoliasearch-helper": "^3.3.4",
-    "autoprefixer": "^10.2.3",
+    "algoliasearch": "^4.13.1",
+    "algoliasearch-helper": "^3.8.2",
+    "autoprefixer": "^10.4.7",
     "csvtojson": "^2.0.10",
     "dotenv-flow": "^3.2.0",
-    "express": "^4.17.1",
-    "helmet": "^4.4.1",
-    "postcss": "^8.2.4",
-    "shrink-ray-current": "^4.1.2",
-    "tailwindcss": "^2.0.2",
+    "express": "^4.18.1",
+    "helmet": "^4.6.0",
+    "postcss": "^8.4.14",
+    "shrink-ray-current": "^4.1.3",
+    "tailwindcss": "^2.2.19",
     "ts-node": "^9.1.1",
-    "typescript": "^4.1.3",
-    "vite": "^2.0.0-beta.65"
+    "typescript": "^4.6.4",
+    "vite": "^2.9.9"
   },
   "engines": {
     "node": "14.15.4",

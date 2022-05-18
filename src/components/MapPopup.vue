@@ -42,7 +42,6 @@ export default defineComponent({
 
   setup() {
     const loaded = ref(false)
-
     return {
       loaded,
     }

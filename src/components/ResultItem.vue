@@ -19,14 +19,23 @@
 
       <div class="mt-5 flex flex-col space-y-1">
         <div>
+          <div class="text-lg font-medium highlight">
+            {{ item._highlightResult.name.value }}
+          </div>
+
+          <span
+            v-if="item._highlightResult?.dining_style?.value"
+            class="text-md font-small highlight"
+          >
+            ({{ item._highlightResult?.dining_style?.value }} )
+          </span>
+
           <div
-            class="text-lg font-medium highlight"
-            v-html="item._highlightResult.name.value"
-          ></div>
-          <div
+            v-if="item._highlightResult?.food_type?.value"
             class="text-base highlight"
-            v-html="item._highlightResult.food_type.value"
-          ></div>
+          >
+            {{ item._highlightResult?.food_type?.value }}
+          </div>
         </div>
 
         <div class="flex items-center space-x-2 text-sm">
@@ -35,11 +44,9 @@
           >
             <StarIcon class="w-3 h-3" />
           </span>
-          <span
-            class="font-medium"
-            :class="{ 'text-cyan-dark': item.stars_count >= 4 }"
-            >{{ item.stars_count.toFixed(1) }}</span
-          >
+          <span class="font-medium" :class="{ 'text-cyan-dark': stars >= 4 }">{{
+            stars
+          }}</span>
 
           <div class="w-0.5 h-0.5 bg-black rounded-full"></div>
 
@@ -96,7 +103,13 @@ export default defineComponent({
       MapStore.updateObjectID(props.item.objectID)
     }
 
-    return { loaded, onClick }
+    const stars = props.item.stars_count
+
+    return {
+      loaded,
+      onClick,
+      stars,
+    }
   },
 })
 </script>

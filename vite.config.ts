@@ -4,7 +4,10 @@ import vue from '@vitejs/plugin-vue'
 
 export default defineConfig({
   plugins: [vue()],
-  alias: {
-    '@': resolve(__dirname, 'src'),
-  },
+  resolve: {
+    alias: {
+      '@@': resolve(__dirname, '../'),
+      '@': resolve(__dirname, 'src'),
+    }
+  }
 })
