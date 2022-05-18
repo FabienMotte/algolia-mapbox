@@ -1,6 +1,25 @@
-# Algolia x Mapbox
+# Vue (Vite) + Algolia + Mapbox
 
 Small experiment with Algolia and Mapbox to search for restaurants within a dataset.
+
+## Get started
+
+- Mapbox account with public key
+- Algolia account with created index to import data from this project
+  - Predefined attributes for search and facets
+    - Facets: food_type, name
+  
+- Copy .env.dev to .env file and add all tokens, ids
+  
+```bash
+    cp .env.dev .dev
+```
+
+- Process dataset: sanitize and upload the dataset to Algolia (created index), run:
+
+```bash
+npm run task:dataset
+```
 
 ## Technologies
 
@@ -37,10 +56,4 @@ To build the project, run
 npm run build
 ```
 
-### Process dataset
 
-To sanitize and upload the dataset, run
-
-```bash
-npm run dataset:process
-```

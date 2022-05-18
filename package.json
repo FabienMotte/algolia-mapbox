@@ -1,6 +1,10 @@
 {
   "name": "algolia-mapbox",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "contributors": [
+    "https://github.com/FabienMotte",
+    "https://github.com/devzom"
+  ],
   "scripts": {
     "start": "npm run dev",
     "dev": "vite --port 3000",
