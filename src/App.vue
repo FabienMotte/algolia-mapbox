@@ -1,7 +1,6 @@
 <template>
   <Container>
     <SearchBar />
-
     <div class="w-full h-full flex overflow-hidden">
       <Refinements class="w-3/12" />
       <Map class="w-6/12" />

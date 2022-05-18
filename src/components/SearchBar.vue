@@ -16,7 +16,7 @@
         autocorrect="off"
         autocapitalize="off"
         spellcheck="false"
-        maxlength="100"
+        :maxlength="100"
         autofocus
         v-model="query"
       />
@@ -34,7 +34,7 @@
         class="icon-btn right-0"
         @click="query = ''"
       >
-        <CloseIcon class="icon" />
+        <CloseIcon v-show="query" class="icon" />
       </button>
     </form>
   </div>
