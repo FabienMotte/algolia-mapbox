@@ -1,6 +1,6 @@
 import path from 'path'
 import express from 'express'
-import shrinkRay from 'shrink-ray-current'
+import compression from 'compression'
 import helmet from 'helmet'
 
 const port = process.env.PORT || 5000
@@ -8,7 +8,7 @@ const distPath = path.join('dist')
 
 const app = express()
 
-app.use(shrinkRay())
+app.use(compression())
 app.use(
   helmet({
     contentSecurityPolicy: {
